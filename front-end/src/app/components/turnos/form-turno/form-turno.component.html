@@ -1,0 +1,38 @@
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">{{titulo}}</h4>
+            </div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="formTurno">
+                <div class="center">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Seleccione una moto</mat-label>
+                            <mat-select  formControlName="motoId" >
+                              <mat-option *ngFor="let item of listMotos" [value]="item.id">
+                                {{item.placa }} {{item.nombrePropietario}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        
+                            <p class="col text-danger" *ngIf="validarCampo('motoId')">Placas requeridas</p>
+                        
+                    </div>  
+                </div>
+            </div>
+                <button mat-raised-button (click)="salir()" class="btn btn-danger pull-right">Cancelar</button>
+                <button mat-raised-button type="submit" [disabled]="!formTurno.valid" class="btn btn-primary pull-right"> {{modelo==undefined? 'Ingresar':'Actualizar'}}</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

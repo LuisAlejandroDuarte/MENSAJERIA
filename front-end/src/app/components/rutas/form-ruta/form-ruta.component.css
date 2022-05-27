@@ -1,0 +1,10 @@
+.center {
+    width: 70%;     
+    margin:0 auto;   
+
+}
+
+.right {
+    color: black!important;
+    place-self: self-end;
+}

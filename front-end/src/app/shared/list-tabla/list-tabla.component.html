@@ -1,0 +1,19 @@
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container *ngFor="let column of columnas"  [matColumnDef]="column.columnDef" >   
+      <ng-template [ngIf]="column.visible==true">
+        <th  mat-header-cell *matHeaderCellDef > {{column.header}} </th>     
+        <td  mat-cell *matCellDef="let element"> {{element[column.columnDef]}} </td>                      
+      </ng-template>  
+    
+    </ng-container> 
+  
+    <ng-container    matColumnDef="editar">     
+      <th mat-header-cell *matHeaderCellDef >Editar</th>     
+      <td mat-cell *matCellDef="let element"><button (click)="Select(element.id)" mat-button color="primary"><i class="material-icons">edit</i></button></td>                      
+  </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>    
+</table>

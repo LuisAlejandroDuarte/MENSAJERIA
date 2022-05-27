@@ -1,0 +1,59 @@
+
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">lock</i>
+              </div>
+              <h4 class="card-title">Cambiar clave de inicio</h4>
+            </div>
+            <form (ngSubmit)="actualizar()" [formGroup]="formCambioClave">
+                <div class="container-fluid">
+                    <div class="center">
+                <div class="row">                
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Clave actual</label>
+                      <input type="password" class="form-control"
+                        formControlName="claveactual">
+                        <p class="col text-danger" *ngIf="validarCampo('claveactual')">Clave requerida</p>
+                    </div>
+                  </div>
+                </div>                       
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Nueva clave</label>
+                      <input type="password" class="form-control"
+                      formControlName="clave1">
+                      <p class="col text-danger" *ngIf="validarCampo('clave1')">Nueva clave requerida</p>
+                    </div>
+                  </div>             
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Repetir nueva clave</label>
+                      <input type="password" class="form-control"
+                      formControlName="clave2">
+                      <p class="col text-danger" *ngIf="validarCampo('clave2')">Repetir Nueva clave requerida</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">                               
+                <button mat-raised-button type="submit" [disabled]="!formCambioClave.valid" class="btn btn-rose pull-right">Actualizar</button>
+                <div class="clearfix"></div>
+              </div>
+              <p class="col text-danger" *ngIf="validarContrasenas()">Las claves no son iguales</p>
+                </div>
+            </div>
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>

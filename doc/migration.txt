@@ -1,0 +1,4 @@
+add-migration addRelationshipUsuarioEmpresa -p Mensajeria.RepositoryEFCore -c MensajeriaContext -o Migrations -s  Mensajeria.RepositoryEFCore
+update-database -p Mensajeria.RepositoryEFCore  -s  Mensajeria.RepositoryEFCore
+
+e7L3WcaZLN2nW3V6zMjP

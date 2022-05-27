@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container width">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header card-header-icon card-header-rose">
+              <div class="card-icon">
+                <i class="material-icons">supervised_user_circle</i>
+              </div>
+              <h4 class="card-title">{{titulo}}</h4>
+            </div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="formPropietario">
+
+                <div class="container-fluid">
+                    <div class="row">                
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Identificación</label>
+                          <input type="text" class="form-control"
+                            formControlName="identificacion">
+                            <p class="col text-danger" *ngIf="validarCampo('identificacion')">Identificación requerida</p>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Nombres</label>
+                          <input type="text" class="form-control"
+                            formControlName="nombre">
+                            <p class="col text-danger" *ngIf="validarCampo('nombre')">Nombre  requerida</p>
+                        </div>
+                      </div>                    
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Apellidos</label>
+                          <input type="text" class="form-control"
+                            formControlName="apellido">
+                            <p class="col text-danger" *ngIf="validarCampo('apellido')">Apellido requerida</p>
+                        </div>
+                      </div>                    
+                    </div>
+                    <div class="row">                
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Dirección</label>
+                            <input type="text" class="form-control"
+                              formControlName="direccion">
+                              <p class="col text-danger" *ngIf="validarCampo('direccion')">Dirección requerida</p>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Teléfono</label>
+                            <input type="text" class="form-control"
+                              formControlName="telefono">
+                              <p class="col text-danger" *ngIf="validarCampo('telefono')">Teléfono  requerida</p>
+                          </div>
+                        </div>                    
+                        <div class="col-md-4">
+                            <mat-slide-toggle formControlName="estado">{{(formPropietario.get('estado').value===true)? 'Bloqueado':'Habilitado'}} </mat-slide-toggle>                            
+                        </div>                    
+                      </div>
+                    
+                    <button mat-raised-button (click)="salir()" class="btn btn-danger pull-right">Cancelar</button>
+                    <button mat-raised-button type="submit" [disabled]="!formPropietario.valid" class="btn btn-primary pull-right"> {{modelo==undefined? 'Guardar':'Actualizar'}}</button>
+                </div>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+                    
